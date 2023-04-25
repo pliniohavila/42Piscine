@@ -2,32 +2,30 @@
 
 char    *ft_strupcase(char *str)
 {
-    char    tmp;
-    int     i;
+    char    *src_start;
 
-    i = 0;
-    while(str[i] != '\0')
+    src_start = str;
+    while(*str != '\0')
     {
-        if ((str[i] >= 97) && (str[i] <= 122))
+        if ((*str >= 'A') && (*str <= 'Z'))
         {
-            tmp = (str[i] - 32);
-            str[i] = tmp;
+            *str = (*str) + ('a' - 'A');
         }
-        i++;
+        str++;
     }
-    str[i] = '\0';
-    return (str);
+    return (src_start);
 }
 
 int     main(void)
 {
-    char    src[7] = "STRing";
+    char    src[7] = "STRING";
     char    *struped;
 
     printf("Before: %s\n", src);
     struped = ft_strupcase(src);
     printf("After: %s\n", struped);
     printf("After: %s (original) \n", src);
+
 
     return (0);
 }
