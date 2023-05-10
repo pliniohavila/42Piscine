@@ -1,32 +1,29 @@
 #include "stdio.h"
-
-int     ft_atoi(char *str)
-{
-    int     result;
-    int     count_subtractions;
-
-    result = 0;
-    for (int i = 0; check_is_int(str[i]) != 0; i++)
-    {
-        if (str[i] == '-')
-        {
-            count_subtractions++;
-        }
-        if ((str[i] >= '0') && (str[i] <= '9'))
-        {
-            result = result * 10 + (str[i] - '0');
-        }
-    }
- 
-    if ((count_subtractions % 2) != 0)
-    {
-        result *= (-1);
-    }
-
-    return result;
-}
+#include "stdlib.h"
 
 int     ft_recursive_fatorial(int nb)
 {
-    
+    if (nb < 0)
+        return (0);
+
+    if (nb == 1)
+        return (nb);
+
+    return (nb * ft_recursive_fatorial((nb - 1)));
+}
+
+int     main(int argc, char *argv[])
+{
+    int     n;
+    int     ft;
+
+    if (argc != 2)
+        return (-1);
+
+    n = atoi(argv[1]);
+    ft = ft_recursive_fatorial(n);
+
+    printf("Fact of the %s is %d\n", argv[1], ft); 
+
+    return (0);
 }
