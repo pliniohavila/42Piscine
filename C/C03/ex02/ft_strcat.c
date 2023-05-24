@@ -7,7 +7,10 @@ char    *ft_strcat(char *dest, char *src)
     int     i;
     int     j;
 
-    i = (ft_strlen(dest));
+    if (dest == NULL || src == NULL)
+        return NULL;
+
+    i = ft_strlen(dest);
     j = 0;
     while (dest[i] == '\0')
     {
@@ -32,11 +35,10 @@ int     ft_strlen(char *str) {
     int     len; 
 
     len = 0;
-    while (*str || *str == '\0')
+    while (str[len] != '\0')
     {
         len++;
-        str++;
     }
 
-    return (len);
+    return len;
 }
