@@ -27,8 +27,8 @@ São recursos que podem ajudar no caminho de aprender a programar.
 13. [Estrutura de Dados](https://www.youtube.com/playlist?list=PLI-A7AA2TwhUTt7KcHFW3gqTb-gxMUeJZ)
 14. [Laboratório de Programação Orientada a Objetos em Java](https://www.youtube.com/playlist?list=PLTeQ2u81sjqfsFNWrUCIoqJZBSJrai8M7)
 15. [Curso POO Raiz com PHP](https://www.youtube.com/playlist?list=PLBD8to5dJhvzKn2cM_KAriWpL2SPQXbIf)
-16. 
-17. 
+16. [Algoritmos e Estruturas de Dados 1](https://www.youtube.com/playlist?list=PL5TPkym335qztD0JofGEyVcdmlNf7arzE)
+17. [AED2 2023](https://www.youtube.com/playlist?list=PL5TPkym335qzwUkBSiM0uIphAPjHFDNbB)
 18. 
 
 
