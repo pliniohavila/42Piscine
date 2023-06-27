@@ -1,0 +1,1 @@
+#define ABS(v) (v) < 0 ? -(v) : v
