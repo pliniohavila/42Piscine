@@ -1,0 +1,6 @@
+fcntl() can take an optional third argument.  Whether or not this
+       argument is required is determined by cmd.  The required argument
+       type is indicated in parentheses after each cmd name (in most
+       cases, the required type is int, and we identify the argument
+       using the name arg), or void is specified if the argument is not
+       required.
