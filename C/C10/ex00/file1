@@ -1,2 +1,3 @@
-  fcntl() performs one of the operations described below on the
-       open file descriptor fd.  The operation is determined by cmd.
+FILE 1
+fcntl() performs one of the operations described below on the
+open file descriptor fd.  The operation is determined by cmd.
