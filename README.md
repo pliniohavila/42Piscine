@@ -36,3 +36,13 @@ São recursos que podem ajudar no caminho de aprender a programar.
 1. 
 
 ## Livros 
+
+
+## Reposítórios GitHub
+1. https://github.com/charlax/professional-programming
+2. https://github.com/mtdvio/every-programmer-should-know 
+3. https://github.com/goldbergyoni/javascript-testing-best-practices/blob/master/readme-pt-br.md
+4. https://github.com/tassavarat/holbertonschool-low_level_programming/tree/master 
+5. https://github.com/learnbyexample/TUI-apps/tree/main/AwkExercises 
+6. https://github.com/trekhleb/javascript-algorithms/blob/master/README.pt-BR.md 
+7. https://github.com/johncoleman83/bootcampschool-low_level_programming 
