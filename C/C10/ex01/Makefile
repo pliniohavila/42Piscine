@@ -9,7 +9,7 @@ LIB     = ./libs
 
 # rules
 all: 
-	$(CC) $(FLAGS) ft_display_file.c -L $(LIB)/ -l ft -I ./include -o ft_display_file
+	$(CC) $(FLAGS) ft_cat.c -o ft_cat
 
 clean:
 	rm -f *.o
@@ -18,4 +18,4 @@ fclean: clean
 	rm -f ft_display_file
 
 run:
-	./ft_display_file file1 file2 file3
+	./ft_cat file1 file2 file3
