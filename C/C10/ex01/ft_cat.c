@@ -27,8 +27,10 @@ int     main(int argc, char **argv)
                 write(2, "Error opening the file\n", 30);
                 return (1);
             }
-            i++;
             ft_cat(fd);
+            if (fd != STDIN_FILENO)
+                close(fd);
+            i++;
         }
     }
 
@@ -38,6 +40,7 @@ int     main(int argc, char **argv)
 void    clear_buf(char *buf)
 {
     int     i;
+    i = 0;
     while(i < MAX_BUF)
         buf[i++] = '\0';
 }
@@ -54,13 +57,11 @@ void    ft_cat(int fd)
 
     while ((bytes_reads = read(fd, buf, MAX_BUF - 1)) > 0)
     {
-        buf[bytes_reads] = '\0';
+        buf[bytes_reads - 1] = '\0';
         bytes_writes = write(1, buf, bytes_reads);
         if (bytes_writes != bytes_reads)
         {
             write(2, "Error reading the file\n", 30);
-            if (fd != STDIN_FILENO)
-                goto close_fd;
             return;
         }
     }
@@ -68,14 +69,8 @@ void    ft_cat(int fd)
     if (bytes_reads == -1)
     {
         write(2, "Error reading the file\n", 30);
-        goto close_fd;
         return;
     }
 
     write(1, "\n\n", 2);   
-    goto close_fd;
-
-close_fd:
-    if (fd != STDIN_FILENO)
-        close(fd); 
 }
