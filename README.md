@@ -9,6 +9,8 @@ https://github.com/ItsAnunesS/42Piscine
 São recursos que podem ajudar no caminho de aprender a programar. 
 
 ## Cursos 
+1. https://teachyourselfcs.com
+
 
 ## Playlists no Youtube
 
@@ -36,7 +38,9 @@ São recursos que podem ajudar no caminho de aprender a programar.
 1. 
 
 ## Livros 
-
+1. https://htdp.org
+2. [Guia Beej's Para Programação em Rede](https://beej.us/guide/bgnet/translations/bgnet_ptbr.html)
+3. [How to Design Programs](https://htdp.org)
 
 ## Reposítórios GitHub
 1. https://github.com/charlax/professional-programming
@@ -46,3 +50,25 @@ São recursos que podem ajudar no caminho de aprender a programar.
 5. https://github.com/learnbyexample/TUI-apps/tree/main/AwkExercises 
 6. https://github.com/trekhleb/javascript-algorithms/blob/master/README.pt-BR.md 
 7. https://github.com/johncoleman83/bootcampschool-low_level_programming 
+8. https://github.com/johncoleman83/bootcampschool-low_level_programming
+
+
+## Adicionais e Referências
+1. https://wiki.inf.ufpr.br/maziero/doku.php?id=start
+2. https://jskatas.org
+3. https://www.lurklurk.org/linkers/linkers.html
+4. https://gaultier.github.io/blog/x11_x64.html 
+5. 
+6. 
+
+
+## Blogs
+1. https://bartoszmilewski.com 
+2. https://h0mbre.github.io 
+3. https://fitzgeraldnick.com 
+4. https://beej.us/guide/
+5. https://xorvoid.com
+
+## Ecole 42 GitH
+1. https://github.com/evgenkarlson/ALL_SCHOOL_42/tree/master
+2. https://github.com/ItsAnunesS/42Piscine 
