@@ -10,6 +10,10 @@ São recursos que podem ajudar no caminho de aprender a programar.
 
 ## Cursos 
 1. https://teachyourselfcs.com
+2. https://functionalcs.github.io/curriculum/
+3. https://cs61a.org
+4. [CS 225 Introduction to Data Structures and Algorithms with C++](https://courses.engr.illinois.edu/cs225/fa2022/)
+5. 
 
 
 ## Playlists no Youtube
@@ -41,6 +45,12 @@ São recursos que podem ajudar no caminho de aprender a programar.
 1. https://htdp.org
 2. [Guia Beej's Para Programação em Rede](https://beej.us/guide/bgnet/translations/bgnet_ptbr.html)
 3. [How to Design Programs](https://htdp.org)
+4. [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/index.html)
+5. [Putting the “You” in CPU](https://cpu.land)
+6. [Reverse Engineering 101](https://malwareunicorn.org/workshops/re101.html#0)
+7. https://exploringjs.com/index.html
+8. [Speaking JavaScript: An In-Depth Guide for Programmers](https://exploringjs.com/es5/index.html)
+9. [Foundations of Computer Science](http://infolab.stanford.edu/~ullman/focs.html)
 
 ## Reposítórios GitHub
 1. https://github.com/charlax/professional-programming
@@ -58,8 +68,9 @@ São recursos que podem ajudar no caminho de aprender a programar.
 2. https://jskatas.org
 3. https://www.lurklurk.org/linkers/linkers.html
 4. https://gaultier.github.io/blog/x11_x64.html 
-5. 
-6. 
+5. http://peter.michaux.ca/articles/scheme-from-scratch-introduction 
+6. https://malisper.me/debugging-lisp-part-1-recompilation/
+7. 
 
 
 ## Blogs
@@ -68,7 +79,11 @@ São recursos que podem ajudar no caminho de aprender a programar.
 3. https://fitzgeraldnick.com 
 4. https://beej.us/guide/
 5. https://xorvoid.com
+6. http://peter.michaux.ca
+7. https://blog.miguelgrinberg.com/index
 
 ## Ecole 42 GitH
 1. https://github.com/evgenkarlson/ALL_SCHOOL_42/tree/master
 2. https://github.com/ItsAnunesS/42Piscine 
+3. https://github.com/DaviPrograme/ft_turing
+4. 
