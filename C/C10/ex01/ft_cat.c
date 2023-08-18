@@ -11,6 +11,12 @@ int     main(int argc, char **argv)
     int     i;
     int     fd;
 
+    if (argc > 5)
+    {
+        write(2, "Many informed files. Maximum 5.\n", 30);
+        return (1);
+    }
+
     if (argc == 1)
     {
         fd = STDIN_FILENO;
@@ -28,8 +34,7 @@ int     main(int argc, char **argv)
                 return (1);
             }
             ft_cat(fd);
-            if (fd != STDIN_FILENO)
-                close(fd);
+            close(fd);
             i++;
         }
     }
