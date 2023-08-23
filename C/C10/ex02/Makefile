@@ -18,4 +18,4 @@ fclean: clean
 	rm -f ft_tail
 
 run:
-	./ft_tail text.txt
+	./ft_tail -c 20 text.txt
