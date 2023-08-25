@@ -42,15 +42,16 @@ São recursos que podem ajudar no caminho de aprender a programar.
 1. 
 
 ## Livros 
-1. https://htdp.org
-2. [Guia Beej's Para Programação em Rede](https://beej.us/guide/bgnet/translations/bgnet_ptbr.html)
-3. [How to Design Programs](https://htdp.org)
-4. [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/index.html)
-5. [Putting the “You” in CPU](https://cpu.land)
-6. [Reverse Engineering 101](https://malwareunicorn.org/workshops/re101.html#0)
-7. https://exploringjs.com/index.html
-8. [Speaking JavaScript: An In-Depth Guide for Programmers](https://exploringjs.com/es5/index.html)
-9. [Foundations of Computer Science](http://infolab.stanford.edu/~ullman/focs.html)
+01. https://htdp.org
+02. [Guia Beej's Para Programação em Rede](https://beej.us/guide/bgnet/translations/bgnet_ptbr.html)
+03. [How to Design Programs](https://htdp.org)
+04. [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/index.html)
+05. [Putting the “You” in CPU](https://cpu.land)
+06. [Reverse Engineering 101](https://malwareunicorn.org/workshops/re101.html#0)
+07. https://exploringjs.com/index.html
+08. [Speaking JavaScript: An In-Depth Guide for Programmers](https://exploringjs.com/es5/index.html)
+09. [Foundations of Computer Science](http://infolab.stanford.edu/~ullman/focs.html)
+10. [Practical Common Lisp](https://gigamonkeys.com/book/)
 
 ## Reposítórios GitHub
 1. https://github.com/charlax/professional-programming
