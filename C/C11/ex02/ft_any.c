@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 #define AR_LENGTH(arr) (sizeof(arr) / sizeof(arr[0]))
-#define LEN 5
 
 int     ft_any(char **tab, int(*f)(char*));
 int     check(char *ch);
