@@ -2,26 +2,23 @@
 #include <stdlib.h>
 #include "ft_list.h"
 
-
-t_list      *ft_create_elem(void*);
-void        ft_list_push_front(t_list**, void*);
-void        print_elem_data(void*);
-
 int     main(void)
 {
-    int     nb;
-    int     nb2;
+    int   i;
+    int   *k;
     t_list  *list;
-
-    nb = 42;
-    nb2 = 21;
-    list = ft_create_elem(&nb);
-    if (list == NULL)
-        return (1);
-    ft_list_push_front(&list, &nb2);
-    print_elem_data(list->data);
-    print_elem_data(list->next->data);
-
+    
+    list = NULL;
+    i = 1;
+    while (i < 4)
+    {
+      k = malloc(sizeof(int));
+      *k = i++;
+      ft_list_push_front(&list, k);
+    }
+    ft_list_foreach(list, print_elem_data);
+    ft_list_clear(list, &free_fct);
+    ft_list_foreach(list, print_elem_data);
     return(0);
 }
 
@@ -47,6 +44,9 @@ t_list      *ft_create_elem(void *data)
 
     elem = (t_list*)malloc(sizeof(t_list));
     if (elem == NULL)
+        return NULL;
+    elem->data = malloc(sizeof(int));
+    if (elem>data == NULL)
         return NULL;
     elem->next = NULL;
     elem->data = data;

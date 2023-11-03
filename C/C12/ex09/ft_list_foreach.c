@@ -3,12 +3,6 @@
 #include "ft_list.h"
 
 
-t_list      *ft_create_elem(void*);
-void        ft_list_push_front(t_list**, void*);
-void        ft_list_foreach(t_list *begin_list, void (*f)(void *));
-void        print_elem_data(void*);
-void        field_list(t_list **begin_list);
-
 int     main(void)
 {
     int     nb;
