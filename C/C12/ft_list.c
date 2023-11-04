@@ -6,6 +6,7 @@ int     main(void)
 {
     int     i;
     int     *k;
+    int     *nb;
     t_list  *list;
     t_list  *last;
     
@@ -13,7 +14,8 @@ int     main(void)
     i = 1;
     while (i < 4)
     {
-        k = malloc(sizeof(int));
+        if ((k = malloc(sizeof(int))) == NULL)
+            return (1);
         *k = i++;
         ft_list_push_front(&list, k);
     }
@@ -22,6 +24,13 @@ int     main(void)
     last = ft_list_last(list);
     printf("Last element: ");
     print_elem_data(last->data);
+    if ((nb = malloc(sizeof(int))) == NULL)
+        return (1);
+    *nb = 42;
+    printf("Add element in back\n");
+    ft_list_push_back(&list, nb);
+    ft_list_foreach(list, print_elem_data);
+    printf("Size: %d\n", ft_list_size(list));
     ft_list_clear(&list, free_fct);
     if (list == NULL)
         printf("List empty");
@@ -117,6 +126,17 @@ t_list      *ft_list_last(t_list *begin_list)
     while (current->next != NULL)
         current = current->next;
     return (current);
+}
+
+void        ft_list_push_back(t_list **begin_list, void *data)
+{
+    t_list      *elem;
+
+    elem = ft_create_elem(data);
+    if (elem == NULL)
+        return;
+    elem->next = *begin_list;
+    *begin_list = elem;
 }
 
 void        free_fct(void *ptr)
