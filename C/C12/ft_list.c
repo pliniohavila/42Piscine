@@ -4,33 +4,24 @@
 
 int     main(void)
 {
-    int     i;
-    int     *k;
-    int     *nb;
     t_list  *list;
-    t_list  *last;
-    
-    list = NULL;
-    i = 1;
-    while (i < 4)
+    t_list  *current;
+    char    *strs[4];
+
+    strs[0] = "Ecole42";   
+    strs[1] = "Push";   
+    strs[2] = "Compiler";   
+    strs[3] = "Action That";   
+    list = ft_list_push_strs(4, strs);
+
+    current = list;
+    printf("Size: %d\n", ft_list_size(list));
+    while (current)
     {
-        if ((k = malloc(sizeof(int))) == NULL)
-            return (1);
-        *k = i++;
-        ft_list_push_front(&list, k);
+        printf("%s - ", (char*)current->data);
+        current = current->next;
     }
-    ft_list_foreach(list, print_elem_data);
-    printf("Size: %d\n", ft_list_size(list));
-    last = ft_list_last(list);
-    printf("Last element: ");
-    print_elem_data(last->data);
-    if ((nb = malloc(sizeof(int))) == NULL)
-        return (1);
-    *nb = 42;
-    printf("Add element in back\n");
-    ft_list_push_back(&list, nb);
-    ft_list_foreach(list, print_elem_data);
-    printf("Size: %d\n", ft_list_size(list));
+    printf("\n");
     ft_list_clear(&list, free_fct);
     if (list == NULL)
         printf("List empty");
@@ -52,9 +43,8 @@ void        ft_list_push_front(t_list **begin_list, void *data)
     else 
     {
         current = *begin_list;
-        while (current->next != NULL) {
+        while (current->next != NULL)
             current = current->next;
-        }
         elem->next = current->next;
         current->next = elem;
     }
@@ -97,7 +87,8 @@ void        ft_list_clear(t_list **begin_list, void (*free_fct)(void *))
         
         current = *begin_list;
         *begin_list = (*begin_list)->next;
-        free_fct(current->data);
+        // free_fct(current->data);
+        current->data = NULL;
         free_fct(current);
     }
     *begin_list = NULL;
@@ -137,6 +128,21 @@ void        ft_list_push_back(t_list **begin_list, void *data)
         return;
     elem->next = *begin_list;
     *begin_list = elem;
+}
+
+t_list      *ft_list_push_strs(int size, char **strs)
+{
+    int         i;
+    t_list      *list_strs;
+
+    list_strs = NULL;
+    i = 0;
+    while (i < size)
+    {
+        ft_list_push_front(&list_strs, strs[i]);
+        i++;
+    }
+    return(list_strs);
 }
 
 void        free_fct(void *ptr)
