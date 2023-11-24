@@ -7,6 +7,7 @@ int     main(void)
     t_list  *list;
     t_list  *current;
     char    *strs[4];
+    t_list   *at;
 
     strs[0] = "Ecole42";   
     strs[1] = "Push";   
@@ -22,6 +23,8 @@ int     main(void)
         current = current->next;
     }
     printf("\n");
+    at = ft_list_at(list, 2);
+    printf("List at[2]: %s\n", (char*)at->data);
     ft_list_clear(&list, free_fct);
     if (list == NULL)
         printf("List empty");
@@ -143,6 +146,23 @@ t_list      *ft_list_push_strs(int size, char **strs)
         i++;
     }
     return(list_strs);
+}
+
+t_list      *ft_list_at(t_list *begin_list, unsigned int nbr)
+{
+    unsigned int    i;
+    t_list          *elem;
+
+    i = 0;
+    elem = begin_list;  
+    while (elem)
+    {
+        if (i == nbr)
+            return (elem);
+        i++;
+        elem = elem->next;
+    }
+    return NULL;
 }
 
 void        free_fct(void *ptr)
