@@ -2,45 +2,24 @@
 #include <stdlib.h>
 #include "ft_list.h"
 
-#define LIST_LEN 5 
-
-int     ft_strcmp(char *s1, char *s2)
-{
-    unsigned char   c1;
-    unsigned char   c2;
-
-    while (*s1 != '\0')
-    {
-        c1 = *s1++;
-        c2 = *s2++;
-        if (c1 != c2)
-            return c1 < c2 ? -1 : 1;
-    }
-    return (0);
-}
 
 int     main(void)
 {
     t_list  *list;
     t_list  *current;
     char    *strs[LIST_LEN];
-    t_list  *found;
 
     strs[0] = "Ecole42";   
-    strs[1] = "Push_one";   
+    strs[1] = "Push";   
     strs[2] = "Compiler";   
     strs[3] = "Push";   
     strs[4] = "Action That";   
     list = ft_list_push_strs(LIST_LEN, strs);
     current = list;
-    while (current)
-    {
-        printf("%s -> ", (char*)current->data);
-        current = current->next;
-    }
-    printf("\n");
-    found = ft_list_find(list, strs[1], &ft_strcmp);
-    printf("Found: %s\n", (char*)found->data);
+    PRINT_LIST(current);
+    ft_list_remove_if(&list, strs[1], &ft_strcmp, &free_fct);
+    current = list;
+    PRINT_LIST(current);
     ft_list_clear(&list, free_fct);
     if (list == NULL)
         printf("\nList empty\n");
@@ -106,7 +85,6 @@ void        ft_list_clear(t_list **begin_list, void (*free_fct)(void *))
         
         current = *begin_list;
         *begin_list = (*begin_list)->next;
-        // free_fct(current->data);
         current->data = NULL;
         free_fct(current);
     }
@@ -202,7 +180,7 @@ void        ft_list_reverse(t_list **begin_list)
 void        ft_list_foreach_if(t_list *begin_list, void (*f)(void *), 
                 void *data_ref, int(*cmp)())
 {
-    t_list  *current;
+    t_list      *current;
 
     current = begin_list;
     while (current != NULL)
@@ -215,7 +193,7 @@ void        ft_list_foreach_if(t_list *begin_list, void (*f)(void *),
 
 t_list      *ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)())
 {
-    t_list  *current;
+    t_list      *current;
 
     current = begin_list;
     while (current != NULL)
@@ -227,6 +205,46 @@ t_list      *ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)())
     return (NULL);
 }
 
+void        ft_list_remove_if(t_list **s, void *data_ref, int (*cmp)(), void (*free_fct)(void *))
+{
+    t_list      *current;
+    t_list      *prev;
+    t_list      *tmp;
+
+    current = *s;
+    prev = NULL;
+    tmp = NULL;
+    while (current != NULL)
+    {
+        if ((cmp(current->data, data_ref)) == 0) 
+        {
+            if (prev == NULL) 
+            {
+                tmp = current;
+                *s = (*s)->next;
+                current = *s;
+                tmp->data = NULL;
+                free_fct(tmp);
+            }
+            else 
+            {
+                tmp = current;
+                current = current->next;
+                prev->next = current;
+                tmp->data = NULL;
+                free_fct(tmp);
+                prev = current;
+                
+            }
+        }
+        else 
+        {   
+            prev = current;
+            current = current->next;
+        }
+    }
+}
+
 void        free_fct(void *ptr)
 {
     free(ptr);
@@ -235,4 +253,19 @@ void        free_fct(void *ptr)
 void        print_elem_data(void *data)
 {
     printf("Element: %s\n", (char*)data);
+}
+
+int     ft_strcmp(char *s1, char *s2)
+{
+    unsigned char   c1;
+    unsigned char   c2;
+
+    while (*s1 != '\0')
+    {
+        c1 = *s1++;
+        c2 = *s2++;
+        if (c1 != c2)
+            return c1 < c2 ? -1 : 1;
+    }
+    return (0);
 }
