@@ -2,17 +2,35 @@
 #include <stdlib.h>
 #include "ft_list.h"
 
+#define LIST_LEN 5 
+
+int     ft_strcmp(char *s1, char *s2)
+{
+    unsigned char   c1;
+    unsigned char   c2;
+
+    while (*s1 != '\0')
+    {
+        c1 = *s1++;
+        c2 = *s2++;
+        if (c1 != c2)
+            return c1 < c2 ? -1 : 1;
+    }
+    return (0);
+}
+
 int     main(void)
 {
     t_list  *list;
     t_list  *current;
-    char    *strs[4];
+    char    *strs[LIST_LEN];
 
     strs[0] = "Ecole42";   
     strs[1] = "Push";   
     strs[2] = "Compiler";   
-    strs[3] = "Action That";   
-    list = ft_list_push_strs(4, strs);
+    strs[3] = "Push";   
+    strs[4] = "Action That";   
+    list = ft_list_push_strs(LIST_LEN, strs);
 
     current = list;
     printf("Size: %d\n", ft_list_size(list));
@@ -22,16 +40,10 @@ int     main(void)
         current = current->next;
     }
     printf("\n");
-    ft_list_reverse(&list);
-    current = list;
-    while (current)
-    {
-        printf("%s - ", (char*)current->data);
-        current = current->next;
-    }
+    ft_list_foreach_if(list, &print_elem_data, strs[1], &ft_strcmp);
     ft_list_clear(&list, free_fct);
     if (list == NULL)
-        printf("List empty");
+        printf("\nList empty\n");
     return(0);
 }
 
@@ -187,6 +199,20 @@ void        ft_list_reverse(t_list **begin_list)
     *begin_list = prev;
 }
 
+void        ft_list_foreach_if(t_list *begin_list, void (*f)(void *), 
+                void *data_ref, int(*cmp)())
+{
+    t_list  *current;
+
+    current = begin_list;
+    while (current != NULL)
+    {
+        if ((cmp(current->data, data_ref)) == 0)
+            f(current->data);
+        current = current->next;
+    }
+}
+
 void        free_fct(void *ptr)
 {
     free(ptr);
@@ -194,5 +220,5 @@ void        free_fct(void *ptr)
 
 void        print_elem_data(void *data)
 {
-    printf("Data: %d\n", *(int*)data);
+    printf("Element: %s\n", (char*)data);
 }
