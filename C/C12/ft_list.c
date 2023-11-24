@@ -7,7 +7,6 @@ int     main(void)
     t_list  *list;
     t_list  *current;
     char    *strs[4];
-    t_list   *at;
 
     strs[0] = "Ecole42";   
     strs[1] = "Push";   
@@ -23,8 +22,13 @@ int     main(void)
         current = current->next;
     }
     printf("\n");
-    at = ft_list_at(list, 2);
-    printf("List at[2]: %s\n", (char*)at->data);
+    ft_list_reverse(&list);
+    current = list;
+    while (current)
+    {
+        printf("%s - ", (char*)current->data);
+        current = current->next;
+    }
     ft_list_clear(&list, free_fct);
     if (list == NULL)
         printf("List empty");
@@ -163,6 +167,24 @@ t_list      *ft_list_at(t_list *begin_list, unsigned int nbr)
         elem = elem->next;
     }
     return NULL;
+}
+
+void        ft_list_reverse(t_list **begin_list) 
+{
+    t_list     *prev;
+    t_list     *next;
+    t_list     *current;
+
+    prev = NULL;
+    current = *begin_list;
+    while (current) 
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    *begin_list = prev;
 }
 
 void        free_fct(void *ptr)
