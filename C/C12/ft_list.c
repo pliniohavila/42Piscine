@@ -24,23 +24,23 @@ int     main(void)
     t_list  *list;
     t_list  *current;
     char    *strs[LIST_LEN];
+    t_list  *found;
 
     strs[0] = "Ecole42";   
-    strs[1] = "Push";   
+    strs[1] = "Push_one";   
     strs[2] = "Compiler";   
     strs[3] = "Push";   
     strs[4] = "Action That";   
     list = ft_list_push_strs(LIST_LEN, strs);
-
     current = list;
-    printf("Size: %d\n", ft_list_size(list));
     while (current)
     {
-        printf("%s - ", (char*)current->data);
+        printf("%s -> ", (char*)current->data);
         current = current->next;
     }
     printf("\n");
-    ft_list_foreach_if(list, &print_elem_data, strs[1], &ft_strcmp);
+    found = ft_list_find(list, strs[1], &ft_strcmp);
+    printf("Found: %s\n", (char*)found->data);
     ft_list_clear(&list, free_fct);
     if (list == NULL)
         printf("\nList empty\n");
@@ -178,7 +178,7 @@ t_list      *ft_list_at(t_list *begin_list, unsigned int nbr)
         i++;
         elem = elem->next;
     }
-    return NULL;
+    return (NULL);
 }
 
 void        ft_list_reverse(t_list **begin_list) 
@@ -211,6 +211,20 @@ void        ft_list_foreach_if(t_list *begin_list, void (*f)(void *),
             f(current->data);
         current = current->next;
     }
+}
+
+t_list      *ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)())
+{
+    t_list  *current;
+
+    current = begin_list;
+    while (current != NULL)
+    {
+        if ((cmp(current->data, data_ref)) == 0)
+            return (current);
+        current = current->next;
+    }
+    return (NULL);
 }
 
 void        free_fct(void *ptr)
