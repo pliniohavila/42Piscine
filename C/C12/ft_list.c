@@ -6,18 +6,14 @@
 int     main(void)
 {
     t_list  *list;
+    t_list  *list2;
     t_list  *current;
-    char    *strs[LIST_LEN];
+    char    *strs[LIST_LEN] = {"Ecole42", "Push", "Compiler", "Push", "Action That"};
+    char    *strs2[LIST_LEN] = {"News", "Malware", "GCC"};
 
-    strs[0] = "Ecole42";   
-    strs[1] = "Push";   
-    strs[2] = "Compiler";   
-    strs[3] = "Push";   
-    strs[4] = "Action That";   
     list = ft_list_push_strs(LIST_LEN, strs);
-    current = list;
-    PRINT_LIST(current);
-    ft_list_remove_if(&list, strs[1], &ft_strcmp, &free_fct);
+    list2 = ft_list_push_strs(LIST_LEN, strs2);
+    ft_list_merge(&list, list2);
     current = list;
     PRINT_LIST(current);
     ft_list_clear(&list, free_fct);
@@ -243,6 +239,18 @@ void        ft_list_remove_if(t_list **s, void *data_ref, int (*cmp)(), void (*f
             current = current->next;
         }
     }
+}
+
+void        ft_list_merge(t_list **begin_list1, t_list *begin_list2)
+{
+    t_list      *current;
+
+    current = *begin_list1;
+    while (current->next != NULL)
+        current = current->next;
+    if (current->next == NULL)
+        current->next = begin_list2;
+    return;
 }
 
 void        free_fct(void *ptr)
