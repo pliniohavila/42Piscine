@@ -6,14 +6,15 @@
 int     main(void)
 {
     t_list  *list;
-    t_list  *list2;
+    // t_list  *list2;
     t_list  *current;
-    char    *strs[LIST_LEN] = {"Ecole42", "Push", "Compiler", "Push", "Action That"};
-    char    *strs2[LIST_LEN] = {"News", "Malware", "GCC"};
+    char    *strs[LIST_LEN] = {"Ecole42", "Push", "Compiler", "News", "Action"};
+    // char    *strs2[LIST_LEN] = {"News", "Malware", "GCC"};
 
     list = ft_list_push_strs(LIST_LEN, strs);
-    list2 = ft_list_push_strs(LIST_LEN, strs2);
-    ft_list_merge(&list, list2);
+    current = list;
+    PRINT_LIST(current);
+    ft_list_sort(&list, &ft_strcmp);
     current = list;
     PRINT_LIST(current);
     ft_list_clear(&list, free_fct);
@@ -251,6 +252,30 @@ void        ft_list_merge(t_list **begin_list1, t_list *begin_list2)
     if (current->next == NULL)
         current->next = begin_list2;
     return;
+}
+
+void        ft_list_sort(t_list **begin_list, int (*cmp)())
+{
+    t_list      *i;
+    t_list      *k;
+    void        *tmp;
+
+    i = *begin_list;   
+    while (i != NULL)
+    {
+        k = *begin_list;;
+        while (k->next != NULL) 
+        {
+            if ((cmp(k->data, k->next->data)) > 0)
+            {
+                tmp = k->data;
+                k->data = k->next->data;
+                k->next->data = tmp;
+            }
+            k = k->next;
+        }
+        i = i->next;
+    }
 }
 
 void        free_fct(void *ptr)
