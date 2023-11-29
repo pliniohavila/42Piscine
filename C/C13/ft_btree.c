@@ -16,6 +16,8 @@ int     main(void)
     printf("\n");
     btree_apply_infix(btree, &btree_print_node);
     printf("\n");
+    btree_apply_suffix(btree, &btree_print_node);
+    printf("\n");
     free(btree);
     return (0);
 }
@@ -78,6 +80,16 @@ void        btree_apply_infix(t_btree *root, void (*applyf)(void *))
     applyf(root->item);
     ft_putstr(" ");
     btree_apply_infix(root->right, applyf);
+}
+
+void        btree_apply_suffix(t_btree *root, void (*applyf)(void *))
+{
+    if (root == NULL)
+        return;
+    btree_apply_suffix(root->left, applyf);
+    btree_apply_suffix(root->right, applyf);
+    applyf(root->item);
+    ft_putstr(" ");
 }
 
 void        btree_print_node(void *item)
