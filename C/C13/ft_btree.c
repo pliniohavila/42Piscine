@@ -14,7 +14,7 @@ int     main(void)
     btree = btree_make(btree, itens, LIST_LEN);
     btree_apply_prefix(btree, &btree_print_node);
     printf("\n");
-    btree_print_nodes(btree);
+    btree_apply_infix(btree, &btree_print_node);
     printf("\n");
     free(btree);
     return (0);
@@ -66,18 +66,18 @@ void        btree_apply_prefix(t_btree *root, void (*applyf)(void *))
         return;
     applyf(root->item);
     ft_putstr(" ");
-    btree_print_nodes(root->left);
-    btree_print_nodes(root->right);
+    btree_apply_prefix(root->left, applyf);
+    btree_apply_prefix(root->right, applyf);
 }
 
-// infix mode
-void        btree_print_nodes(t_btree *node)
+void        btree_apply_infix(t_btree *root, void (*applyf)(void *))
 {
-    if (node == NULL)
+    if (root == NULL)
         return;
-    btree_print_nodes(node->left);
-    printf("%s ", (char*)node->item);
-    btree_print_nodes(node->right);
+    btree_apply_infix(root->left, applyf);
+    applyf(root->item);
+    ft_putstr(" ");
+    btree_apply_infix(root->right, applyf);
 }
 
 void        btree_print_node(void *item)

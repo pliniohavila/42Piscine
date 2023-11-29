@@ -15,7 +15,7 @@ t_btree             *btree_create_node(void *item);
 t_btree             *btree_insert_node(t_btree *btree, void *item);
 t_btree             *btree_make(t_btree *btree, char **itens, int len);
 void                btree_apply_prefix(t_btree *root, void (*applyf)(void *));
-void                btree_print_nodes(t_btree *node);
+void                btree_apply_infix(t_btree *root, void (*applyf)(void *));
 void                btree_print_node(void *item);
 void                ft_putstr(char *str);
 int                 ft_strcmp(char *s1, char *s2);
