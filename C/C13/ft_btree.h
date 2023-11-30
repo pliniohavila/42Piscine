@@ -19,10 +19,12 @@ void                btree_apply_prefix(t_btree *root, void (*applyf)(void *));
 void                btree_apply_infix(t_btree *root, void (*applyf)(void *));
 void                btree_apply_suffix(t_btree *root, void (*applyf)(void *));
 void                *btree_search_item(t_btree *root, void *data_ref, int (*cmpf)(void *, void *));
+int                 btree_level_count(t_btree *root);
 void                btree_print_node(void *item);
 void                ft_putstr(char *str);
 int                 ft_strcmp(char *s1, char *s2);
 int                 voidcmp(void *s1, void *s2);
+int                 max(int nb1, int nb2);
 
 
 

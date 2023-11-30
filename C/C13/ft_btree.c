@@ -7,13 +7,13 @@
 int     main(void)
 {
     t_btree     *btree;
-    char        *found;
+    int         max;
     char        *itens[LIST_LEN] = {"Ecole42", "Push", "Compiler", "News", "Action"};
 
     btree = NULL;
     btree = btree_make(btree, itens, LIST_LEN);
-    found = (char*)btree_search_item(btree, itens[2], &voidcmp);
-    printf("Expected: %s - Received: %s\n", itens[2], found);
+    max = btree_level_count(btree);
+    printf("Max: %d\n", max);
     printf("\n");
     free(btree);
     return (0);
@@ -100,6 +100,27 @@ void        *btree_search_item(t_btree *root, void *data_ref, int (*cmpf)(void *
         return root->item;
     result = btree_search_item(root->right, data_ref, cmpf);
     return (result);
+}
+
+int         btree_level_count(t_btree *root)
+{
+    int     height_left;
+    int     height_right;
+
+    if (root == NULL) return (0);
+    height_left = 0;
+    height_right = 0;
+    height_left = btree_level_count(root->left);
+    height_right = btree_level_count(root->right);
+
+    return (1 + max(height_left, height_right));
+}
+
+int         max(int nb1, int nb2)
+{
+    if (nb1 > nb2)
+        return (nb1);
+    return (nb2);   
 }
 
 void        btree_print_node(void *item)
