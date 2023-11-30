@@ -7,11 +7,13 @@
 int     main(void)
 {
     t_btree     *btree;
-    char    *itens[LIST_LEN] = {"Ecole42", "Push", "Compiler", "News", "Action"};
+    char        *found;
+    char        *itens[LIST_LEN] = {"Ecole42", "Push", "Compiler", "News", "Action"};
 
     btree = NULL;
     btree = btree_make(btree, itens, LIST_LEN);
-    btree_apply_infix(btree, &btree_print_node);
+    found = (char*)btree_search_item(btree, itens[2], &voidcmp);
+    printf("Expected: %s - Received: %s\n", itens[2], found);
     printf("\n");
     free(btree);
     return (0);
@@ -83,6 +85,21 @@ void        btree_apply_suffix(t_btree *root, void (*applyf)(void *))
     btree_apply_suffix(root->right, applyf);
     applyf(root->item);
     ft_putstr(" ");
+}
+
+void        *btree_search_item(t_btree *root, void *data_ref, int (*cmpf)(void *, void *))
+{
+    void    *result;
+
+    if (root == NULL)
+        return NULL;
+    result = btree_search_item(root->left, data_ref, cmpf);
+    if (result != NULL)
+        return (result);
+    if ((cmpf(data_ref, root->item)) == 0)
+        return root->item;
+    result = btree_search_item(root->right, data_ref, cmpf);
+    return (result);
 }
 
 void        btree_print_node(void *item)
