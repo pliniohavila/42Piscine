@@ -9,11 +9,12 @@ https://github.com/ItsAnunesS/42Piscine
 São recursos que podem ajudar no caminho de aprender a programar. 
 
 ## Cursos 
-1. https://teachyourselfcs.com
-2. https://functionalcs.github.io/curriculum/
-3. https://cs61a.org
-4. [CS 225 Introduction to Data Structures and Algorithms with C++](https://courses.engr.illinois.edu/cs225/fa2022/)
-5. 
+01. https://teachyourselfcs.com
+02. https://functionalcs.github.io/curriculum/
+03. https://cs61a.org
+04. [CS 225 Introduction to Data Structures and Algorithms with C++](https://courses.engr.illinois.edu/cs225/fa2022/)
+05. [Programming Language Principles and Paradigms](https://eecs390.github.io/notes/index.html)
+06. [Program Analysis (Winter Semester 2020/21)]https://software-lab.org/teaching/winter2020/pa/
 
 
 ## Playlists no Youtube
@@ -54,37 +55,62 @@ São recursos que podem ajudar no caminho de aprender a programar.
 10. [Practical Common Lisp](https://gigamonkeys.com/book/)
 
 ## Reposítórios GitHub
-1. https://github.com/charlax/professional-programming
-2. https://github.com/mtdvio/every-programmer-should-know 
-3. https://github.com/goldbergyoni/javascript-testing-best-practices/blob/master/readme-pt-br.md
-4. https://github.com/tassavarat/holbertonschool-low_level_programming/tree/master 
-5. https://github.com/learnbyexample/TUI-apps/tree/main/AwkExercises 
-6. https://github.com/trekhleb/javascript-algorithms/blob/master/README.pt-BR.md 
-7. https://github.com/johncoleman83/bootcampschool-low_level_programming 
-8. https://github.com/johncoleman83/bootcampschool-low_level_programming
+01. https://github.com/charlax/professional-programming
+02. https://github.com/mtdvio/every-programmer-should-know 
+03. https://github.com/goldbergyoni/javascript-testing-best-practices/blob/master/readme-pt-br.md
+04. https://github.com/tassavarat/holbertonschool-low_level_programming/tree/master 
+05. https://github.com/learnbyexample/TUI-apps/tree/main/AwkExercises 
+06. https://github.com/trekhleb/javascript-algorithms/blob/master/README.pt-BR.md 
+07. https://github.com/johncoleman83/bootcampschool-low_level_programming 
+08. https://github.com/johncoleman83/bootcampschool-low_level_programming
 
 
 ## Adicionais e Referências
-1. https://wiki.inf.ufpr.br/maziero/doku.php?id=start
-2. https://jskatas.org
-3. https://www.lurklurk.org/linkers/linkers.html
-4. https://gaultier.github.io/blog/x11_x64.html 
-5. http://peter.michaux.ca/articles/scheme-from-scratch-introduction 
-6. https://malisper.me/debugging-lisp-part-1-recompilation/
-7. 
+01. https://wiki.inf.ufpr.br/maziero/doku.php?id=start
+02. https://jskatas.org
+03. https://www.lurklurk.org/linkers/linkers.html
+04. https://gaultier.github.io/blog/x11_x64.html 
+05. http://peter.michaux.ca/articles/scheme-from-scratch-introduction 
+06. https://malisper.me/debugging-lisp-part-1-recompilation/
+07. https://labs.iximiuz.com 
 
 
 ## Blogs
-1. https://bartoszmilewski.com 
-2. https://h0mbre.github.io 
-3. https://fitzgeraldnick.com 
-4. https://beej.us/guide/
-5. https://xorvoid.com
-6. http://peter.michaux.ca
-7. https://blog.miguelgrinberg.com/index
+01. https://bartoszmilewski.com 
+02. https://h0mbre.github.io 
+03. https://fitzgeraldnick.com 
+04. https://beej.us/guide/
+05. https://xorvoid.com
+06. http://peter.michaux.ca
+07. https://blog.miguelgrinberg.com/index
+08. https://nullprogram.com
+09. https://blog.sanctum.geek.nz
+10. https://iafisher.com
+11. https://embracethered.com/blog/
+12. https://blog.perfect.blue
+11. http://blog.coffinsec.com
 
-## Ecole 42 GitH
-1. https://github.com/evgenkarlson/ALL_SCHOOL_42/tree/master
-2. https://github.com/ItsAnunesS/42Piscine 
-3. https://github.com/DaviPrograme/ft_turing
-4. 
+## Challengers
+01. https://app.codecrafters.io/catalog
+02. 
+03. 
+
+## Ecole 42 Gits
+01. https://github.com/evgenkarlson/ALL_SCHOOL_42/tree/master
+02. https://github.com/ItsAnunesS/42Piscine 
+03. https://github.com/DaviPrograme/ft_turing
+04. 
+
+## Ecole 42 Notions
+01. https://rodsmade.notion.site/rodsmade/Acelera-42cursus-400c86d2e61242338b010c23c6930134
+02. https://equable-beach-49e.notion.site/Notion-dos-Notions-Projetos-da-42-4e9bc573b5e84b10b91054510d6b4797
+
+
+# Recursos 
+
+## Compiladores e interpretadores on-line
+01. https://inst.eecs.berkeley.edu/~cs61a/fa14/assets/interpreter/scheme.html
+02. https://cdecl.org
+03. https://free-for.dev/#/ 
+
+
