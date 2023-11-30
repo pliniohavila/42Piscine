@@ -7,16 +7,11 @@
 int     main(void)
 {
     t_btree     *btree;
-    // int     itens[] = { 11, 0, 2, 38, 15, 8, };
     char    *itens[LIST_LEN] = {"Ecole42", "Push", "Compiler", "News", "Action"};
 
     btree = NULL;
     btree = btree_make(btree, itens, LIST_LEN);
-    btree_apply_prefix(btree, &btree_print_node);
-    printf("\n");
     btree_apply_infix(btree, &btree_print_node);
-    printf("\n");
-    btree_apply_suffix(btree, &btree_print_node);
     printf("\n");
     free(btree);
     return (0);
@@ -35,21 +30,19 @@ t_btree     *btree_create_node(void *item)
     return (node);
 }
 
-t_btree     *btree_insert_node(t_btree *btree_node, void *item)
+void     btree_insert_data(t_btree **root, void *item, int (*cmpf)(void *, void *))
 {
-    if (btree_node == NULL)
+    if (*root == NULL)
     {
-        btree_node = btree_create_node(item);
+        *root = btree_create_node(item);
     }
     else 
     {
-        if ((ft_strcmp(item, btree_node->item)) > 0)
-            btree_node->left = btree_insert_node(btree_node->left, item);
+        if ((cmpf(item, (*root)->item)) > 0)
+            btree_insert_data(&(*root)->left, item, cmpf);
         else 
-            btree_node->right = btree_insert_node(btree_node->right, item);
+            btree_insert_data(&(*root)->right, item, cmpf);
     }
-    // printf("[btree_insert_node]: %d\n", *(int*)btree_node->item);
-    return (btree_node);
 }
 
 t_btree     *btree_make(t_btree *btree, char **itens, int len)
@@ -58,7 +51,7 @@ t_btree     *btree_make(t_btree *btree, char **itens, int len)
 
     i = 0;
     while (i < len)
-        btree = btree_insert_node(btree, itens[i++]);
+        btree_insert_data(&btree, itens[i++], &voidcmp);
     return (btree);
 }
 
@@ -103,10 +96,15 @@ void        ft_putstr(char *str)
         write(1, str++, 1);
 }
 
+int         voidcmp(void *s1, void *s2)
+{
+    return (ft_strcmp((char*)s1, (char*)s2));
+}
+
 int         ft_strcmp(char *s1, char *s2)
 {
-    unsigned char   c1;
-    unsigned char   c2;
+    char   c1;
+    char   c2;
 
     while (*s1 != '\0')
     {
